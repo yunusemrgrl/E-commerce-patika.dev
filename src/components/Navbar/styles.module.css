@@ -1,0 +1,25 @@
+.nav {
+    padding: 13px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom : 1px solid #555;
+    height: 50px;
+    align-items: center;
+}
+.nav .left {
+    display: flex;
+}
+.logo {
+    padding: 7px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.categories {
+    display: flex;
+}
+.categories li  {
+    padding: 8px;
+}
+.right a:first-child {
+    margin-right: 10px;
+}
