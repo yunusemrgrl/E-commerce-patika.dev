@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Card({ product }) {
   return (
     <Box borderWidth='1px' borderRadius='lg' overflow='hidden' p='3'>
-      <Link to='/#'>
+      <Link to={`/product/${product._id}`}>
         <Image src={product.photos[0]} alt='Images' loading='lazy' />
         <Box>
           <Box display='flex' alignItems='baseline'>

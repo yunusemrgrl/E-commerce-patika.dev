@@ -6,6 +6,9 @@ import App from './App';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ChakraProvider } from '@chakra-ui/react';
 import { ReactQueryDevtools } from 'react-query/devtools';
+
+// context
+import { AuthProvider } from './context/AuthContext';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -19,7 +22,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <QueryClientProvider client={queryClient}>
     <ChakraProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </ChakraProvider>
 
     <ReactQueryDevtools initialIsOpen={false} />
