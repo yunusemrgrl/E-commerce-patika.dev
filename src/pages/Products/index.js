@@ -3,6 +3,10 @@ import Card from '../../components/Card';
 import { Box, Button, Flex, Grid } from '@chakra-ui/react';
 import { useInfiniteQuery } from 'react-query';
 import { fetchProductList } from '../../api';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Products() {
   const {
     data,
@@ -26,10 +30,8 @@ function Products() {
   if (status === 'error') return 'An error has occurred: ' + error.message;
   return (
     <div>
+      <ToastContainer />
       <Grid templateColumns='repeat(3, 1fr)' gap={20}>
-        {/* {data.map((product, index) => (
-          <Card key={index} product={product} />
-        ))} */}
         {data.pages.map((group, i) => (
           <React.Fragment key={i}>
             {group.map((product) => (

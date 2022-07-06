@@ -6,7 +6,8 @@ import Signup from './pages/Auth/Signup';
 import ProductDetail from './pages/ProductDetail';
 import Products from './pages/Products';
 import Profile from './pages/Profile';
-import ProductedRoute from './pages/ProductedRoute';
+import Basket from './pages/Basket';
+import Error from './pages/Error';
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
           <Route path='/product/:product_id' element={<ProductDetail />} />
           <Route path='/signin' element={<Signin />} />
           <Route path='/signup' element={<Signup />} />
-          <ProductedRoute path='/profile' element={<Profile />} />
+          <Route path='/basket' element={<Basket />} />
+          <Route path='*' element={<Error />} />
+          <Route path='/profile/*' element={<Profile />} />
         </Routes>
       </div>
     </BrowserRouter>

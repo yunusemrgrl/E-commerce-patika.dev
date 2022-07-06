@@ -1,9 +1,9 @@
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Button, Text } from '@chakra-ui/react';
 function Profile() {
   let navigate = useNavigate();
-  const { user, logout } = useAuth();
+  const { user, logout, loggedIn } = useAuth();
 
   const handleLogout = async () => {
     logout(() => {
@@ -12,15 +12,27 @@ function Profile() {
   };
 
   return (
-    <div>
-      <Text fontSize='2xl'>Profile</Text>
-      <code>{JSON.stringify(user)}</code>
-      <br />
-      <br />
-      <Button colorScheme='pink' variant='solid' onClick={handleLogout}>
-        Logout
-      </Button>
-    </div>
+    <>
+      {!loggedIn && (
+        <>
+          <Navigate to='/' replace={true} />
+        </>
+      )}
+
+      {loggedIn && (
+        <>
+          <div>
+            <Text fontSize='2xl'>Profile</Text>
+            <code>{JSON.stringify(user)}</code>
+            <br />
+            <br />
+            <Button colorScheme='pink' variant='solid' onClick={handleLogout}>
+              Logout
+            </Button>
+          </div>
+        </>
+      )}
+    </>
   );
 }
 
