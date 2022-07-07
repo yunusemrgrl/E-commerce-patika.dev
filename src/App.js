@@ -8,6 +8,7 @@ import Products from './pages/Products';
 import Profile from './pages/Profile';
 import Basket from './pages/Basket';
 import Error from './pages/Error';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/basket' element={<Basket />} />
           <Route path='*' element={<Error />} />
           <Route path='/profile/*' element={<Profile />} />
+          <Route path='/admin/*' element={<Admin />} />
         </Routes>
       </div>
     </BrowserRouter>
